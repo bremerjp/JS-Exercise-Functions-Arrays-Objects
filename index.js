@@ -180,8 +180,8 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
-  /* code here */
+function getLastCarInfo(inventory) {
+  return `This is a ${inventory[inventory.length - 1].car_make} ${inventory[inventory.length - 1].car_model}`;
 }
 
 /**
@@ -196,8 +196,8 @@ function getLastCarInfo(/* code here */) {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(/* code here */) {
-  /* code here */
+function getCarInfoById(inventory, idNumber) {
+  return `This is a ${inventory[idNumber - 1].car_make} ${inventory[idNumber - 1].car_model}`;
 }
 
 /**
@@ -208,8 +208,8 @@ function getCarInfoById(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
-function sortCarInventory(/* code here */) {
-  /* code here */
+function sortCarInventory(inventory) {
+  return inventory.sort((a, b) => a.car_model.localeCompare(b.car_model));
 }
 
 /**
@@ -221,8 +221,12 @@ function sortCarInventory(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(/* code here */) {
-  /* code here */
+function getModelYears(inventory) {
+  let years = [];
+  for (let i = 0; i < inventory.length; i++) {
+    years.push(inventory[i].car_year);
+  }
+  return years;
 }
 
 /**
